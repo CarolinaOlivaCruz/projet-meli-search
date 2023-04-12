@@ -1,5 +1,6 @@
 import React from "react";
-import logo from "../../assets/imgs/logo1.png";
+import logo from "../../assets/imgs/logo2.png";
+import iconSearch from "../../assets/imgs/search.png";
 import { StyledHeader } from "./style";
 
 const Header = () => {
@@ -8,7 +9,10 @@ const Header = () => {
       <section>
         <img src={logo} alt="" />
         <form>
-          <input type="text" placeholder="Buscar..." />
+          <input type="text" placeholder="Buscar productos..." />
+          <button>
+            <img src={iconSearch} alt="" />
+          </button>
         </form>
       </section>
     </StyledHeader>
