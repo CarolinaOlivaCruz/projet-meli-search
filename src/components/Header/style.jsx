@@ -4,7 +4,8 @@ export const StyledHeader = styled.header`
   width: 100vw;
   height: 150px;
   box-shadow: 0px 1px 4px 0 var(--color-grey-70);
-
+  background-color: var(--color-grey-30);
+  
   section {
     width: 90%;
     height: 100%;

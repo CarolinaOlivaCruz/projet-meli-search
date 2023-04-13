@@ -19,7 +19,7 @@ export const GlobalStyles = createGlobalStyle`
         --color-grey-80: #969696;
         --color-grey-70: #848484;
         --color-grey-60: #D2D2D2;
-        --color-grey-50: #EDDCDC;
+        --color-grey-50: #fcf9f9;
         --color-grey-40: #F5F5F5;
         --color-grey-30: #FFFFFF;
         --color-orange-80: #F7941D;
