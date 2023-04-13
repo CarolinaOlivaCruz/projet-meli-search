@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { ProductsContext } from "../../provider/productsContext";
 import StyledList from "./style";
 
 const ListProducts = () => {
-  const { listProducts } = useContext(ProductsContext);
-
+  const { listProducts, getItem } = useContext(ProductsContext);
+  
   return (
     <StyledList>
       {listProducts?.map((item) => {
@@ -14,7 +14,9 @@ const ListProducts = () => {
           <li key={id}>
             <img src={thumbnail} alt="" />
             <div>
-              <p>{title}</p>
+              <button type="button" onClick={() => getItem(id)}>
+                {title}
+              </button>
               <span>$ {price}</span>
             </div>
           </li>

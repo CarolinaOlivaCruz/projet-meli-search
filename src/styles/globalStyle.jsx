@@ -22,8 +22,8 @@ export const GlobalStyles = createGlobalStyle`
         --color-grey-50: #fcf9f9;
         --color-grey-40: #F5F5F5;
         --color-grey-30: #FFFFFF;
-        --color-orange-80: #F7941D;
-        --color-orange-70: #FEAB48;
+        --color-blue-80: #1f6feb;
+        --color-blue-70: #5b97f5;
 
         --font-size-36: 2.25rem;
         --font-size-25: 1.563rem;

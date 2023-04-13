@@ -8,12 +8,12 @@ const Header = () => {
     <StyledHeader>
       <section>
         <img src={logo} alt="" />
-        <form>
+        <div>
           <input type="text" placeholder="Buscar productos..." />
           <button>
             <img src={iconSearch} alt="" />
           </button>
-        </form>
+        </div>
       </section>
     </StyledHeader>
   );

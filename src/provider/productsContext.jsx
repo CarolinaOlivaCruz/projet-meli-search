@@ -9,10 +9,13 @@ const ProductsContext = createContext({
   modal: false,
   setLoading: () => {},
   loading: false,
+  productDetails: [],
+  setProductDetails: () => {},
 });
 
 const ProductProvider = ({ children }) => {
   const [listProducts, setListProducts] = useState([]);
+  const [productDetails, setProductDetails] = useState([]);
   const [modal, setModal] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -23,13 +26,34 @@ const ProductProvider = ({ children }) => {
           "/sites/MLA/search?q=:query#json"
         );
         setListProducts(response.data.results);
-        console.log(response.data.results);
+        // console.log(response.data.results);
       } catch (error) {
         console.error(error);
       }
     };
     getProducts();
   }, []);
+  
+  const getItem = async (id) => {
+    try {
+      const response = await apiService.get(`/items/${id}`);
+
+      const responseDescription = await apiService.get(
+        `items/${id}/description`
+      );
+
+      setProductDetails({
+        ...response.data,
+        description: responseDescription,
+      });
+
+      // console.log(response.data);
+      // console.log(responseDescription);
+      console.log(productDetails);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <ProductsContext.Provider
@@ -40,6 +64,8 @@ const ProductProvider = ({ children }) => {
         modal,
         setLoading,
         loading,
+        getItem,
+        productDetails,
       }}
     >
       {children}
