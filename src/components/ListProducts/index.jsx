@@ -4,7 +4,7 @@ import StyledList from "./style";
 
 const ListProducts = () => {
   const { listProducts, getItem } = useContext(ProductsContext);
-  
+
   return (
     <StyledList>
       {listProducts?.map((item) => {
@@ -17,7 +17,7 @@ const ListProducts = () => {
               <button type="button" onClick={() => getItem(id)}>
                 {title}
               </button>
-              <span>$ {price}</span>
+              <span>$ {price},00</span>
             </div>
           </li>
         );

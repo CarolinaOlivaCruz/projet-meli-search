@@ -16,6 +16,11 @@ const StyledList = styled.ul`
     background-color: var(--color-grey-30);
     border-radius: var(--radius-1);
 
+    div {
+      display: flex;
+      flex-direction: column;
+    }
+
     button {
       font-size: var(--font-size-14);
       text-align: left;
@@ -55,8 +60,6 @@ const StyledList = styled.ul`
       div {
         width: 100%;
         margin-top: 20px;
-        display: flex;
-        flex-direction: column;
         gap: 20px;
         border-top: 1px solid var(--color-grey-60);
 

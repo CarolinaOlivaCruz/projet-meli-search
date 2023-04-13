@@ -2,16 +2,7 @@ import React from "react";
 import { createContext, useState, useEffect } from "react";
 import apiService from "../services/api";
 
-const ProductsContext = createContext({
-  listProducts: [],
-  setListProducts: () => [],
-  setModal: () => {},
-  modal: false,
-  setLoading: () => {},
-  loading: false,
-  productDetails: [],
-  setProductDetails: () => {},
-});
+const ProductsContext = createContext();
 
 const ProductProvider = ({ children }) => {
   const [listProducts, setListProducts] = useState([]);
@@ -31,25 +22,23 @@ const ProductProvider = ({ children }) => {
         console.error(error);
       }
     };
+
     getProducts();
   }, []);
   
   const getItem = async (id) => {
     try {
       const response = await apiService.get(`/items/${id}`);
-
       const responseDescription = await apiService.get(
         `items/${id}/description`
       );
 
       setProductDetails({
         ...response.data,
-        description: responseDescription,
+        description: responseDescription.data,
       });
 
-      // console.log(response.data);
-      // console.log(responseDescription);
-      console.log(productDetails);
+      setModal(true)
     } catch (error) {
       console.error(error);
     }
