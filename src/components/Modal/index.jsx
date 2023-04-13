@@ -64,10 +64,12 @@ const ProductsDetailsModal = () => {
             <p>
               <span>Garantia: </span> {warranty}
             </p>
-            <p>
-              <span>Descrição:</span> {description.plain_text}
-            </p>
+            <button>Adicionar ao carrinho</button>
           </div>
+          <aside>
+            <h4>Descrição:</h4>
+            <article>{description.plain_text}</article>
+          </aside>
         </main>
       </div>
     </StyledContainerModal>
