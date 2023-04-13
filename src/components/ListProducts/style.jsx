@@ -16,28 +16,32 @@ const StyledList = styled.ul`
     background-color: var(--color-grey-30);
     border-radius: var(--radius-1);
 
-    div {
-      display: flex;
-      flex-direction: column;
-    }
-
     button {
       font-size: var(--font-size-14);
       text-align: left;
-    }
 
-    span {
-      font-weight: bold;
-      font-size: var(--font-size-16);
+      section {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        div {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+
+          span {
+            font-weight: bold;
+            font-size: var(--font-size-16);
+          }
+        }
+      }
     }
 
     :hover {
       transform: scale(1.1);
       box-shadow: 0.1px 0.1px 3px 0.1px var(--color-blue-70);
-
-      button {
-        font-size: var(--font-size-16);
-      }
+      font-size: var(--font-size-16);
     }
   }
 
@@ -57,24 +61,41 @@ const StyledList = styled.ul`
       margin-bottom: 20px;
       box-shadow: 3px 3px 6px 6px var(--color-grey-50);
 
-      div {
-        width: 100%;
+      button {
         margin-top: 20px;
-        gap: 20px;
-        border-top: 1px solid var(--color-grey-60);
+        padding: 0 10px;
+        padding-bottom: 0;
+        font-size: var(--font-size-18);
 
-        button {
+        section {
+          width: 100%;
           margin-top: 20px;
-          padding: 0 10px;
-          padding-bottom: 0;
-          font-size: var(--font-size-18);
-        }
+          flex-direction: column;
+          gap: 10px;
 
-        span {
-          padding: 10px;
-          padding-bottom: 0;
-          font-weight: bold;
-          font-size: var(--font-size-18);
+          div {
+            height: 130px;
+            justify-content: space-between;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border-top: 1px solid var(--color-grey-60);
+
+            p {
+              margin-top: 10px;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              display: -webkit-box;
+              -webkit-line-clamp: 3;
+              -webkit-box-orient: vertical;
+            }
+
+            span {
+              padding-bottom: 0;
+              font-weight: bold;
+              font-size: var(--font-size-18);
+            }
+          }
         }
       }
     }

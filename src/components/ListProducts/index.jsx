@@ -12,13 +12,15 @@ const ListProducts = () => {
 
         return (
           <li key={id}>
-            <img src={thumbnail} alt="" />
-            <div>
-              <button type="button" onClick={() => getItem(id)}>
-                {title}
-              </button>
-              <span>$ {price},00</span>
-            </div>
+            <button type="button" onClick={() => getItem(id)}>
+              <section>
+                <img src={thumbnail} alt="" />
+                <div>
+                  <p>{title}</p>
+                  <span>$ {price},00</span>
+                </div>
+              </section>
+            </button>
           </li>
         );
       })}
