@@ -43,6 +43,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     button {
+        color: inherit;
         background-color: transparent;
         border: none;
         cursor: pointer;
