@@ -6,6 +6,18 @@ export const StyledHeader = styled.header`
   box-shadow: 0px 1px 4px 0 var(--color-grey-70);
   background-color: var(--color-grey-30);
 
+  p {
+    width: 50%;
+    padding: 20px;
+    margin: 30px auto;
+    background-color: var(--color-grey-50);
+    box-shadow: 0px 1px 4px 0 var(--color-grey-60);
+    border-radius: var(--radius-1);
+
+    @media (min-width: 750px) {
+      font-size: var(--font-size-18);
+    }
+  }
   section {
     width: 90%;
     height: 100%;
