@@ -9,6 +9,8 @@ const ProductProvider = ({ children }) => {
   const [productDetails, setProductDetails] = useState([]);
   const [modal, setModal] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
     const getProducts = async () => {
@@ -25,9 +27,14 @@ const ProductProvider = ({ children }) => {
 
     getProducts();
   }, []);
-  
+
+  const handleSearchTerm = (term) => {
+    setSearchTerm(term);
+  };
+
   const getItem = async (id) => {
     try {
+      setLoading(true);
       const response = await apiService.get(`/items/${id}`);
       const responseDescription = await apiService.get(
         `items/${id}/description`
@@ -38,9 +45,11 @@ const ProductProvider = ({ children }) => {
         description: responseDescription.data,
       });
 
-      setModal(true)
+      setModal(true);
+      setLoading(false);
     } catch (error) {
       console.error(error);
+      setLoading(false);
     }
   };
 
@@ -55,6 +64,9 @@ const ProductProvider = ({ children }) => {
         loading,
         getItem,
         productDetails,
+        handleSearchTerm,
+        filteredProducts,
+        setFilteredProducts,
       }}
     >
       {children}

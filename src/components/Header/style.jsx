@@ -25,7 +25,7 @@ export const StyledHeader = styled.header`
       object-fit: cover;
     }
 
-    div {
+    form {
       width: 100%;
       border-radius: var(--radius-3);
       display: flex;
