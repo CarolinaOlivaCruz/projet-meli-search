@@ -71,7 +71,7 @@ export const StyledHeader = styled.header`
         margin-left: -30px;
       }
 
-      div {
+      form {
         width: 50%;
 
         img {

@@ -2,10 +2,11 @@ import styled from "styled-components";
 
 const StyledList = styled.ul`
   width: 100%;
+  margin: 0 auto;
   margin-top: 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 10px;
 
   li {
     display: flex;
@@ -46,13 +47,10 @@ const StyledList = styled.ul`
   }
 
   @media (min-width: 750px) {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
 
     li {
-      width: 30%;
-      max-width: 250px;
       height: 300px;
       max-height: 350px;
       flex-direction: column;
@@ -99,6 +97,14 @@ const StyledList = styled.ul`
         }
       }
     }
+  }
+
+  @media (min-width: 980px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  @media (min-width: 1440px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
 `;
 
