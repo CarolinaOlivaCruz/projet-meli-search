@@ -26,7 +26,7 @@ const HomePage = () => {
             <ListProducts items={displayedItems} />
             <Pagination
               list={filteredProducts}
-              itemsPerPage={10}
+              itemsPerPage={12}
               displayItems={handleDisplayItems}
             />
           </>
