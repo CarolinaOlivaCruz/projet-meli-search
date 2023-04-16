@@ -2,12 +2,12 @@ import React, { useContext, useEffect } from "react";
 import { ProductsContext } from "../../provider/productsContext";
 import StyledList from "./style";
 
-const ListProducts = () => {
+const ListProducts = ({items}) => {
   const { filteredProducts, getItem } = useContext(ProductsContext);
 
   return (
     <StyledList>
-      {filteredProducts?.map((product) => {
+      {items?.map((product) => {
         const { id, thumbnail, title, price } = product;
 
         return (

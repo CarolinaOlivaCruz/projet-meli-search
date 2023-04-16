@@ -49,7 +49,7 @@ const Header = () => {
           </button>
         </form>
       </section>
-      {isSearching && listProducts.length > 0 && !filteredProducts && (
+      {isSearching && filteredProducts === null && (
         <p>Nenhum produto encontrado</p>
       )}
     </StyledHeader>
