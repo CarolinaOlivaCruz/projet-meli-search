@@ -9,15 +9,17 @@ export const StyledHeader = styled.header`
   p {
     width: 50%;
     padding: 20px;
-    margin: 30px auto;
+    margin: 80px auto;
     background-color: var(--color-grey-50);
     box-shadow: 0px 1px 4px 0 var(--color-grey-60);
     border-radius: var(--radius-1);
 
     @media (min-width: 750px) {
+      margin: 150px auto;
       font-size: var(--font-size-18);
     }
   }
+
   section {
     width: 90%;
     height: 100%;
