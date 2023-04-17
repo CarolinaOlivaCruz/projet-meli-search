@@ -3,9 +3,13 @@ import { ProductsContext } from "../../provider/productsContext";
 import StyledContainerModal from "./style";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../provider/cartSlice";
+
 
 const ProductsDetailsModal = () => {
   const { setModal, productDetails } = useContext(ProductsContext);
+  const dispatch = useDispatch();
   const {
     thumbnail,
     title,
@@ -17,6 +21,10 @@ const ProductsDetailsModal = () => {
     condition,
     pictures,
   } = productDetails;
+
+  const handleAddToCart = (productDetails) => {
+    dispatch(addToCart(productDetails));
+  };
 
   return (
     <StyledContainerModal>
@@ -64,7 +72,9 @@ const ProductsDetailsModal = () => {
             <p>
               <span>Garantia: </span> {warranty}
             </p>
-            <button>Adicionar ao carrinho</button>
+            <button onClick={() => handleAddToCart(productDetails)}>
+              Adicionar ao carrinho
+            </button>
           </div>
           <aside>
             <h4>Descrição:</h4>

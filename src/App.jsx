@@ -3,14 +3,30 @@ import { BrowserRouter } from "react-router-dom";
 import { ProductProvider } from "./provider/productsContext";
 import RoutesApp from "./routes";
 import { GlobalStyles } from "./styles/globalStyle";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { configureStore } from "@reduxjs/toolkit";
+import { Provider } from "react-redux";
+import cartReducer, { getTotals } from "./provider/cartSlice";
+
+const store = configureStore({
+  reducer: {
+    cart: cartReducer,
+  },
+});
+
+store.dispatch(getTotals());
 
 const App = () => {
   return (
     <>
-      <GlobalStyles />
       <BrowserRouter>
+        <GlobalStyles />
+        <ToastContainer />
         <ProductProvider>
-          <RoutesApp />
+          <Provider store={store}>
+            <RoutesApp />
+          </Provider>
         </ProductProvider>
       </BrowserRouter>
     </>
