@@ -6,6 +6,7 @@ import ProductsDetailsModal from "../../components/Modal";
 import Pagination from "react-js-pagination";
 import { ProductsContext } from "../../provider/productsContext";
 import ButtonTop from "../../components/button-top";
+import Filters from "../../components/Filters";
 
 const HomePage = () => {
   const {
@@ -38,6 +39,7 @@ const HomePage = () => {
     <>
       {modal && <ProductsDetailsModal />}
       <Header />
+      <Filters />
       <StyledContainer>
         {listProducts && listProducts.length > 0 ? (
           <>

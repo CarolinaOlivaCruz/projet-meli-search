@@ -13,7 +13,12 @@ const ProductProvider = ({ children }) => {
   const [modal, setModal] = useState(false);
   const [loading, setLoading] = useState(false);
   const [filteredProducts, setFilteredProducts] = useState([]);
- 
+  const [sorts, setSorts] = useState([]);
+  const [selectedSort, setSelectedSort] = useState(null);
+  const [listFilters, setListFilters] = useState([]);
+  const [categoryId, setCategoryId] = useState(null);
+  const [showCategories, setShowCategories] = useState(false);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -21,10 +26,20 @@ const ProductProvider = ({ children }) => {
         const response = await apiService.get(
           `/sites/MLA/search?q=:query&offset=${
             (currentPage - 1) * resultsPerPage
-          }&limit=${resultsPerPage}`
+          }&limit=${resultsPerPage}&sort=${selectedSort}&category=${categoryId}`
         );
+
+        setSorts([
+          response.data.sort,
+          response.data.available_sorts[0],
+          response.data.available_sorts[1],
+        ]);
+
+        setListFilters([response.data.available_filters]);
+
         const allResults = response.data.results;
         setTotalResults(response.data.paging.total);
+
         if (currentPage === 1) {
           setListProducts(allResults);
         } else {
@@ -39,7 +54,7 @@ const ProductProvider = ({ children }) => {
     };
 
     fetchData();
-  }, [currentPage, resultsPerPage, setTotalResults]);
+  }, [currentPage, resultsPerPage, selectedSort, categoryId]);
 
   const getItem = async (id) => {
     try {
@@ -80,6 +95,12 @@ const ProductProvider = ({ children }) => {
         totalResults,
         setTotalResults,
         resultsPerPage,
+        sorts,
+        listFilters,
+        setSelectedSort,
+        setCategoryId,
+        showCategories, 
+        setShowCategories
       }}
     >
       {children}
