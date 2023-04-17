@@ -5,13 +5,16 @@ function Pagination({
   totalResults,
   currentPage,
   resultsPerPage,
+  setCurrentPage,
 }) {
   const numPages = Math.ceil(totalResults / resultsPerPage);
 
   useEffect(() => {
-    // Renderiza a primeira página quando a lista é atualizada
-    handlePageChange(1);
-  }, [totalResults]);
+    if (currentPage < 1) {
+      setCurrentPage(1);
+    }
+    // Calculate startIndex and endIndex, and render page numbers
+  }, [totalResults, currentPage, resultsPerPage, setCurrentPage]);
 
   let startIndex, endIndex;
   if (numPages <= 9) {

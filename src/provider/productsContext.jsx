@@ -25,10 +25,11 @@ const ProductProvider = ({ children }) => {
         );
         const allResults = response.data.results;
         setTotalResults(response.data.paging.total);
-        setListProducts((prevListProducts) => [
-          ...prevListProducts,
-          ...allResults,
-        ]);
+        if (currentPage === 1) {
+          setListProducts(allResults);
+        } else {
+          setListProducts((prevProducts) => [...prevProducts, ...allResults]);
+        }
         setLoading(false);
       } catch (error) {
         console.error(error);
