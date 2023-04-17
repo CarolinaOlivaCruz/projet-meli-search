@@ -8,19 +8,15 @@ import { ProductsContext } from "../../provider/productsContext";
 
 const HomePage = () => {
   const {
-    modal,
     listProducts,
-    setModal,
-    setLoading,
+    modal,
     loading,
-    getItem,
-    productDetails,
+    filteredProducts,
     setFilteredProducts,
     currentPage,
     setCurrentPage,
     totalResults,
     resultsPerPage,
-    filteredProducts
   } = useContext(ProductsContext);
   const [displayedItems, setDisplayedItems] = useState([]);
 
@@ -28,16 +24,25 @@ const HomePage = () => {
     setFilteredProducts(listProducts);
   }, [listProducts, setFilteredProducts]);
 
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+
+    // Calculate the new list of products to be displayed
+    const startIndex = (pageNumber - 1) * resultsPerPage;
+    const endIndex = startIndex + resultsPerPage;
+    const currentPageItems = filteredProducts.slice(startIndex, endIndex);
+
+    setDisplayedItems(currentPageItems);
+  };
+
   useEffect(() => {
+    // Calculate the initial list of products to be displayed
     const startIndex = (currentPage - 1) * resultsPerPage;
     const endIndex = startIndex + resultsPerPage;
     const currentPageItems = filteredProducts.slice(startIndex, endIndex);
+
     setDisplayedItems(currentPageItems);
   }, [filteredProducts, currentPage, resultsPerPage]);
-
-  const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
 
   return (
     <>
@@ -46,6 +51,7 @@ const HomePage = () => {
       <StyledContainer>
         {listProducts && listProducts.length > 0 ? (
           <>
+            {loading && <p>Carregando...</p>}
             <ListProducts items={displayedItems} />
             <Pagination
               handlePageChange={handlePageChange}

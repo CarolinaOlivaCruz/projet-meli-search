@@ -6,6 +6,7 @@ function Pagination({
   currentPage,
   resultsPerPage,
   setCurrentPage,
+  setLoading,
 }) {
   const numPages = Math.ceil(totalResults / resultsPerPage);
 
@@ -13,7 +14,6 @@ function Pagination({
     if (currentPage < 1) {
       setCurrentPage(1);
     }
-    // Calculate startIndex and endIndex, and render page numbers
   }, [totalResults, currentPage, resultsPerPage, setCurrentPage]);
 
   let startIndex, endIndex;
