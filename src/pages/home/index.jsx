@@ -1,19 +1,42 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Header from "../../components/Header";
 import ListProducts from "../../components/ListProducts";
 import StyledContainer from "./style";
-import { ProductsContext } from "../../provider/productsContext";
 import ProductsDetailsModal from "../../components/Modal";
 import Pagination from "../../components/Pagination";
+import { ProductsContext } from "../../provider/productsContext";
 
 const HomePage = () => {
-  const { modal, filteredProducts, isSearching } = useContext(ProductsContext);
-  const [displayedItems, setDisplayedItems] = useState(
-    filteredProducts ? filteredProducts.slice(0, 3) : []
-  );
+  const {
+    modal,
+    listProducts,
+    setModal,
+    setLoading,
+    loading,
+    getItem,
+    productDetails,
+    setFilteredProducts,
+    currentPage,
+    setCurrentPage,
+    totalResults,
+    resultsPerPage,
+    filteredProducts
+  } = useContext(ProductsContext);
+  const [displayedItems, setDisplayedItems] = useState([]);
 
-  const handleDisplayItems = (itemsToDisplay) => {
-    setDisplayedItems(itemsToDisplay);
+  useEffect(() => {
+    setFilteredProducts(listProducts);
+  }, [listProducts, setFilteredProducts]);
+
+  useEffect(() => {
+    const startIndex = (currentPage - 1) * resultsPerPage;
+    const endIndex = startIndex + resultsPerPage;
+    const currentPageItems = filteredProducts.slice(startIndex, endIndex);
+    setDisplayedItems(currentPageItems);
+  }, [filteredProducts, currentPage, resultsPerPage]);
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
   };
 
   return (
@@ -21,17 +44,18 @@ const HomePage = () => {
       {modal && <ProductsDetailsModal />}
       <Header />
       <StyledContainer>
-        {filteredProducts && filteredProducts.length > 0 ? (
+        {listProducts && listProducts.length > 0 ? (
           <>
             <ListProducts items={displayedItems} />
             <Pagination
-              list={filteredProducts}
-              itemsPerPage={12}
-              displayItems={handleDisplayItems}
+              handlePageChange={handlePageChange}
+              totalResults={totalResults}
+              resultsPerPage={resultsPerPage}
+              currentPage={currentPage}
             />
           </>
         ) : (
-          isSearching && <p>Nenhum produto encontrado</p>
+          <p>{loading ? "Carregando..." : "Nenhum produto encontrado"}</p>
         )}
       </StyledContainer>
     </>

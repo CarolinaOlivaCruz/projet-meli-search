@@ -6,31 +6,38 @@ const ProductsContext = createContext();
 
 const ProductProvider = ({ children }) => {
   const [listProducts, setListProducts] = useState([]);
+  const [totalResults, setTotalResults] = useState();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [resultsPerPage] = useState(50);
   const [productDetails, setProductDetails] = useState([]);
   const [modal, setModal] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
-    const getProducts = async () => {
+    const fetchData = async () => {
       try {
+        setLoading(true);
         const response = await apiService.get(
-          "/sites/MLA/search?q=:query#json"
+          `/sites/MLA/search?q=:query&offset=${
+            (currentPage - 1) * resultsPerPage
+          }&limit=${resultsPerPage}`
         );
-        setListProducts(response.data.results);
-        // console.log(response.data.results);
+        const allResults = response.data.results;
+        setTotalResults(response.data.paging.total);
+        setListProducts((prevListProducts) => [
+          ...prevListProducts,
+          ...allResults,
+        ]);
+        setLoading(false);
       } catch (error) {
         console.error(error);
+        setLoading(false);
       }
     };
 
-    getProducts();
-  }, []);
-
-  const handleSearchTerm = (term) => {
-    setSearchTerm(term);
-  };
+    fetchData();
+  }, [currentPage]);
 
   const getItem = async (id) => {
     try {
@@ -64,9 +71,13 @@ const ProductProvider = ({ children }) => {
         loading,
         getItem,
         productDetails,
-        handleSearchTerm,
         filteredProducts,
         setFilteredProducts,
+        currentPage,
+        setCurrentPage,
+        totalResults,
+        setTotalResults,
+        resultsPerPage,
       }}
     >
       {children}

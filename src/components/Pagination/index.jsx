@@ -1,21 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 
-function Pagination({ list, itemsPerPage, displayItems }) {
-  const [currentPage, setCurrentPage] = useState(1);
-  const numPages = Math.ceil(list?.length / itemsPerPage);
+function Pagination({
+  handlePageChange,
+  totalResults,
+  currentPage,
+  resultsPerPage,
+}) {
+  const numPages = Math.ceil(totalResults / resultsPerPage);
 
   useEffect(() => {
     // Renderiza a primeira página quando a lista é atualizada
     handlePageChange(1);
-  }, [list]);
-
-  const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
-    const startIndex = (pageNumber - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    const currentPageItems = list.slice(startIndex, endIndex);
-    displayItems(currentPageItems);
-  };
+  }, [totalResults]);
 
   let startIndex, endIndex;
   if (numPages <= 9) {

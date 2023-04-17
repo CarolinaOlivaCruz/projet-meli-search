@@ -3,7 +3,7 @@ import { ProductsContext } from "../../provider/productsContext";
 import StyledList from "./style";
 
 const ListProducts = ({items}) => {
-  const { filteredProducts, getItem } = useContext(ProductsContext);
+  const { getItem } = useContext(ProductsContext);
 
   return (
     <StyledList>
