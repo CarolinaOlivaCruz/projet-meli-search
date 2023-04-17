@@ -13,7 +13,6 @@ const ProductProvider = ({ children }) => {
   const [modal, setModal] = useState(false);
   const [loading, setLoading] = useState(false);
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [sorts, setSorts] = useState([]);
   const [selectedSort, setSelectedSort] = useState(null);
   const [listFilters, setListFilters] = useState([]);
   const [categoryId, setCategoryId] = useState(null);
@@ -28,12 +27,6 @@ const ProductProvider = ({ children }) => {
             (currentPage - 1) * resultsPerPage
           }&limit=${resultsPerPage}&sort=${selectedSort}&category=${categoryId}`
         );
-
-        setSorts([
-          response.data.sort,
-          response.data.available_sorts[0],
-          response.data.available_sorts[1],
-        ]);
 
         setListFilters([response.data.available_filters]);
 
@@ -95,12 +88,11 @@ const ProductProvider = ({ children }) => {
         totalResults,
         setTotalResults,
         resultsPerPage,
-        sorts,
         listFilters,
         setSelectedSort,
         setCategoryId,
-        showCategories, 
-        setShowCategories
+        showCategories,
+        setShowCategories,
       }}
     >
       {children}

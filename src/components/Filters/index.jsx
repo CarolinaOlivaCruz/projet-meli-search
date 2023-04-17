@@ -1,16 +1,23 @@
 import React, { useContext } from "react";
 import { ProductsContext } from "../../provider/productsContext";
 import FilterForCategory from "./FilterForCategory";
-import FilterForPrice from "./FilterForPrice";
+import FilterButton from "./FilterButton";
 import StyledContainer from "./style";
 
 const Filters = () => {
-  const { showCategories } = useContext(ProductsContext);
+  const { listFilters, showCategories } = useContext(ProductsContext);
+
+  const filterCategories =
+    listFilters &&
+    listFilters[0] &&
+    listFilters[0].filter((filter) => filter.id === "category");
 
   return (
     <StyledContainer>
-      <FilterForPrice />
-      {showCategories && <FilterForCategory />}
+      <FilterButton />
+      {showCategories &&
+        filterCategories[0]?.values.length > 0 &&
+        filterCategories && <FilterForCategory />}
     </StyledContainer>
   );
 };
