@@ -7,6 +7,13 @@ const StyledContainer = styled.main`
   @media (min-width: 750px) {
     width: 80%;
   }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+  }
 `;
 
 export default StyledContainer;

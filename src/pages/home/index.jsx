@@ -3,8 +3,9 @@ import Header from "../../components/Header";
 import ListProducts from "../../components/ListProducts";
 import StyledContainer from "./style";
 import ProductsDetailsModal from "../../components/Modal";
-import Pagination from "../../components/Pagination";
+import Pagination from "react-js-pagination";
 import { ProductsContext } from "../../provider/productsContext";
+import ButtonTop from "../../components/button-top";
 
 const HomePage = () => {
   const {
@@ -12,7 +13,6 @@ const HomePage = () => {
     modal,
     loading,
     filteredProducts,
-    setFilteredProducts,
     currentPage,
     setCurrentPage,
     totalResults,
@@ -21,28 +21,18 @@ const HomePage = () => {
   const [displayedItems, setDisplayedItems] = useState([]);
 
   useEffect(() => {
-    setFilteredProducts(listProducts);
-  }, [listProducts, setFilteredProducts]);
+    const startIndex = (currentPage - 1) * resultsPerPage;
+    const endIndex = startIndex + resultsPerPage;
+    const currentPageItems = filteredProducts
+      ? filteredProducts.slice(startIndex, endIndex)
+      : [];
+
+    setDisplayedItems(currentPageItems);
+  }, [currentPage, filteredProducts, resultsPerPage]);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
-
-    // Calculate the new list of products to be displayed
-    const startIndex = (pageNumber - 1) * resultsPerPage;
-    const endIndex = startIndex + resultsPerPage;
-    const currentPageItems = filteredProducts.slice(startIndex, endIndex);
-
-    setDisplayedItems(currentPageItems);
   };
-
-  useEffect(() => {
-    // Calculate the initial list of products to be displayed
-    const startIndex = (currentPage - 1) * resultsPerPage;
-    const endIndex = startIndex + resultsPerPage;
-    const currentPageItems = filteredProducts.slice(startIndex, endIndex);
-
-    setDisplayedItems(currentPageItems);
-  }, [filteredProducts, currentPage, resultsPerPage]);
 
   return (
     <>
@@ -53,16 +43,22 @@ const HomePage = () => {
           <>
             {loading && <p>Carregando...</p>}
             <ListProducts items={displayedItems} />
-            <Pagination
-              handlePageChange={handlePageChange}
-              totalResults={totalResults}
-              resultsPerPage={resultsPerPage}
-              currentPage={currentPage}
-            />
+            {filteredProducts && filteredProducts.length > 0 && (
+              <Pagination
+                activePage={currentPage}
+                itemsCountPerPage={resultsPerPage}
+                totalItemsCount={totalResults}
+                pageRangeDisplayed={5}
+                onChange={handlePageChange}
+              />
+            )}
           </>
         ) : (
-          <p>{loading ? "Carregando..." : "Nenhum produto encontrado"}</p>
+          <>
+            {loading ? <p>Carregando...</p> : <p>Nenhum produto encontrado</p>}
+          </>
         )}
+        <ButtonTop />
       </StyledContainer>
     </>
   );

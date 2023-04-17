@@ -8,12 +8,12 @@ const ProductProvider = ({ children }) => {
   const [listProducts, setListProducts] = useState([]);
   const [totalResults, setTotalResults] = useState();
   const [currentPage, setCurrentPage] = useState(1);
-  const [resultsPerPage] = useState(50);
+  const [resultsPerPage] = useState(12);
   const [productDetails, setProductDetails] = useState([]);
   const [modal, setModal] = useState(false);
   const [loading, setLoading] = useState(false);
   const [filteredProducts, setFilteredProducts] = useState([]);
-
+ 
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -30,6 +30,7 @@ const ProductProvider = ({ children }) => {
         } else {
           setListProducts((prevProducts) => [...prevProducts, ...allResults]);
         }
+
         setLoading(false);
       } catch (error) {
         console.error(error);
@@ -38,7 +39,7 @@ const ProductProvider = ({ children }) => {
     };
 
     fetchData();
-  }, [currentPage]);
+  }, [currentPage, resultsPerPage, setTotalResults]);
 
   const getItem = async (id) => {
     try {
