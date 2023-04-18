@@ -5,8 +5,10 @@ import { StyledHeader } from "./style";
 import { ProductsContext } from "../../provider/productsContext";
 import { useNavigate } from "react-router-dom";
 import cartImg from "../../assets/imgs/cart.png";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const cart = useSelector((state) => state.cart);
   const { listProducts, setFilteredProducts, filteredProducts } =
     useContext(ProductsContext);
   const [searchTerm, setSearchTerm] = useState("");
@@ -54,6 +56,7 @@ const Header = () => {
           </form>
           <button type="button" onClick={() => navigate("/cart")}>
             <img src={cartImg} alt="Carrito" />
+            {cart.cartTotalQuantity}
           </button>
         </div>
       </section>

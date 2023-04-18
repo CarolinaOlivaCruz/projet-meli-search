@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   addCart,
-  clearCart,
   decreaseCart,
   getTotals,
   removeFromCart,
@@ -48,7 +47,7 @@ const ListCart = () => {
               <button onClick={() => handleDecrease(item)}>-</button>
               <button>{item.cartQuantity}</button>
               <button onClick={() => handleAdd(item)}>+</button>
-              <p> $ {item.price * item.cartQuantity}</p>
+              <p> ${item.price * item.cartQuantity}</p>
             </div>
           </li>
         );

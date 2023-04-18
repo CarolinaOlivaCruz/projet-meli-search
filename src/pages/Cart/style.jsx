@@ -9,9 +9,17 @@ const StyledCarrito = styled.div`
   justify-content: center;
   align-items: center;
 
+  .buscar {
+    padding: 8px 15px;
+    color: var(--color-grey-30);
+    background-color: var(--color-blue-70);
+    border-radius: var(--radius-1);
+    border: 1px solid var(--color-grey-60);
+  }
+
   section {
     width: 90%;
-    height: 90%; 
+    height: 90%;
     background-color: var(--color-grey-30);
     border-radius: var(--radius-1);
     display: flex;
@@ -34,7 +42,8 @@ const StyledCarrito = styled.div`
 
     aside {
       width: 90%;
-      height: 150px;
+      min-height: 150px;
+      max-height: 50%;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
@@ -42,6 +51,11 @@ const StyledCarrito = styled.div`
       padding: 0 10px;
       justify-content: center;
       gap: 10px;
+
+      div {
+        display: flex;
+        flex-direction: column;
+      }
 
       span {
         font-weight: bold;
@@ -81,11 +95,11 @@ const StyledCarrito = styled.div`
 
       aside {
         width: 90%;
-        min-height: 160px;
-        max-height: 50%;
         margin: 50px 0;
-     
+        max-height: 40%;
+
         span {
+          font-size: var(--font-size-14);
           font-weight: bold;
         }
 
@@ -104,6 +118,16 @@ const StyledCarrito = styled.div`
 
       p {
         font-size: var(--font-size-25);
+      }
+    }
+  }
+
+  @media (min-width: 750px) {
+    aside {
+      max-height: 40%;
+
+      span {
+        font-size: var(--font-size-18);
       }
     }
   }
