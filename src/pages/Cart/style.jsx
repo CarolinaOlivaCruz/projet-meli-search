@@ -8,29 +8,62 @@ const StyledCarrito = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 3;
 
   .buscar {
     padding: 8px 15px;
     color: var(--color-grey-30);
-    background-color: var(--color-blue-70);
+    background-color: var(--color-blue-80);
     border-radius: var(--radius-1);
     border: 1px solid var(--color-grey-60);
   }
 
+  .sin-products {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
   section {
     width: 90%;
-    height: 90%;
+    height: 95%;
     background-color: var(--color-grey-30);
     border-radius: var(--radius-1);
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     gap: 20px;
     overflow: auto;
+    justify-content: flex-start;
+
     p {
       width: 95%;
       text-align: center;
+    }
+
+    header {
+      width: 100%;
+      box-shadow: 0px 1px 4px 0 var(--color-grey-70);
+      background-color: var(--color-grey-30);
+      display: flex;
+      justify-content: flex-end;
+      padding: 10px 30px;
+
+      button {
+        padding: 5px 15px;
+        border-radius: var(--radius-4);
+        background-color: var(--color-blue-80);
+        font-size: var(--font-size-18);
+        
+        a {
+          color: var(--color-grey-30);
+        }
+
+        @media (min-width: 750px) {
+          font-size: var(--font-size-25);
+        }
+      }
     }
 
     main {
@@ -45,12 +78,14 @@ const StyledCarrito = styled.div`
       min-height: 150px;
       max-height: 50%;
       margin: 0 auto;
+      margin-top: -40px;
       display: flex;
       flex-direction: column;
       border: 1px solid var(--color-grey-60);
       padding: 0 10px;
       justify-content: center;
       gap: 10px;
+      padding: 20px 10px; 
 
       div {
         display: flex;

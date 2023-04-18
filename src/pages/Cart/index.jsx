@@ -20,7 +20,7 @@ const Cart = () => {
   return (
     <StyledCarrito>
       {cart.cartItems.length === 0 ? (
-        <section>
+        <section className="sin-products">
           <p>¡Construye un carrito de compras!</p>
           <Link to="/">
             <span className="buscar">Buscar productos</span>
@@ -28,16 +28,21 @@ const Cart = () => {
         </section>
       ) : (
         <section>
+          <header>
+            <button>
+              <Link to="/">X</Link>
+            </button>
+          </header>
           <main>
             <ListCart />
             <aside>
               <div>
-                <span>Total produtos: {cart.cartTotalQuantity}</span>
-                <span>Total ${cart.cartTotalAmount}</span>
+                <span>Total productos: {cart.cartTotalQuantity}</span>
+                <span>Total price: ${cart.cartTotalAmount}</span>
               </div>
-              <button onClick={() => handleClearCart()}>Clear cart</button>
+              <button onClick={() => handleClearCart()}>Vaciar carrito</button>
               <Link to="/">
-                <p>Ver produtos</p>
+                <p>Buscar productos</p>
               </Link>
             </aside>
           </main>

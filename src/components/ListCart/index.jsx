@@ -39,7 +39,7 @@ const ListCart = () => {
               <div>
                 <p>${item.price}</p>
                 <button onClick={() => handleRemoveFromCart(item)}>
-                  Remover
+                  Borrar
                 </button>
               </div>
             </section>

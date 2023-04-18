@@ -63,8 +63,8 @@ const StyledContainerModal = styled.section`
       button {
         padding: 5px 15px;
         border-radius: var(--radius-4);
-        background-color: var(--color-blue-80);
         color: var(--color-grey-30);
+        background-color: var(--color-blue-80);
         font-size: var(--font-size-18);
 
         @media (min-width: 750px) {
@@ -100,7 +100,7 @@ const StyledContainerModal = styled.section`
           border-radius: var(--radius-3);
           background-color: var(--color-grey-30);
           color: var(--color-blue-80);
-          box-shadow: 0px 1px 4px 0 var(--color-grey-70);
+          box-shadow: 0px 1px 4px 0 var(--color-grey-80);
           font-weight: bold;
 
           @media (min-width: 750px) {
