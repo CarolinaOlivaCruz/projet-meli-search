@@ -8,7 +8,7 @@
 </h3>
 <p>Una aplicación de React responsiva que permite buscar y ver información de un artículo utilizando la API de Mercado Libre.</p>
 Link Vercel: 
-<a href="https://y-orpin-five.vercel.app/">Haga clic aquí</a> para acceder al proyecto.
+<a href="https://y-carolinaolivacruz.vercel.app/">Haga clic aquí</a> para acceder al proyecto.
 </div>
 <br/>
 <p align="center">
@@ -40,7 +40,7 @@ La aplicación es una especie de catálogo de productos que debe contener una li
 Para iniciar las dependencias del proyecto, después de clonar el SSH, abrir la terminal y usar el comando yarn, y después de eso usar el comando yarn start.
 
 Enlace de Vercel: 
-<a href="https://y-orpin-five.vercel.app/">Haga clic aquí</a> para acceder al proyecto.
+<a href="https://y-carolinaolivacruz.vercel.app/">Haga clic aquí</a> para acceder al proyecto.
 
 <h2 id="Bibliotecas">:books: Bibliotecas utilizadas</h2>
 
