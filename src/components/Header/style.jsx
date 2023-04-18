@@ -106,13 +106,12 @@ export const StyledHeader = styled.header`
       }
 
       div {
-
         button {
           padding-left: 0;
           border-left: 0;
           display: flex;
           align-items: center;
-         
+
           img {
             width: 30px;
             height: 90%;
@@ -120,7 +119,6 @@ export const StyledHeader = styled.header`
           }
 
           form {
-
             img {
               margin: 0;
             }

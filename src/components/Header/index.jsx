@@ -39,7 +39,7 @@ const Header = () => {
               type="text"
               value={searchTerm}
               onChange={handleInputChange}
-              placeholder="Buscar produtos..."
+              placeholder="Buscar productos..."
             />
             <button
               onClick={(e) => {
@@ -47,16 +47,16 @@ const Header = () => {
                 handleFilter();
               }}
             >
-              <img src={iconSearch} alt="search" />
+              <img src={iconSearch} alt="Search" />
             </button>
           </form>
           <button>
-            <img src={cartImg} alt="" />
+            <img src={cartImg} alt="Carrito" />
           </button>
         </div>
       </section>
       {isSearching && filteredProducts === null && (
-        <p>Nenhum produto encontrado</p>
+        <p>¡Ningún producto encontrado!</p>
       )}
     </StyledHeader>
   );

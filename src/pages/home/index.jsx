@@ -43,7 +43,7 @@ const HomePage = () => {
       <StyledContainer>
         {listProducts && listProducts.length > 0 ? (
           <>
-            {loading && <p>Carregando...</p>}
+            {loading && <p>Cargando...</p>}
             <ListProducts items={displayedItems} />
             {filteredProducts && filteredProducts.length > 0 && (
               <Pagination
@@ -57,7 +57,7 @@ const HomePage = () => {
           </>
         ) : (
           <>
-            {loading ? <p>Carregando...</p> : <p>Nenhum produto encontrado</p>}
+            {loading ? <p>Cargando...</p> : <p>¡Ningún producto encontrado!</p>}
           </>
         )}
         <ButtonTop />
