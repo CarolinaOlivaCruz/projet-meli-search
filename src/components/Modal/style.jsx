@@ -174,11 +174,3 @@ const StyledContainerModal = styled.section`
 `;
 
 export default StyledContainerModal;
-
-// main {
-//   width: 90%;
-//   margin: 20px auto;
-//   display: grid;
-//   grid-template-columns: auto 60%;
-//   grid-template-rows: 300px auto;
-// grid-row-gap: 60px;
