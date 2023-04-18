@@ -1,6 +1,6 @@
 import React from "react";
 import StyledContainerButton from "./style";
-
+import buttonTop from "../../assets/imgs/arow.png";
 
 const ButtonTop = () => {
   const handleScrollToTop = () => {
@@ -10,8 +10,7 @@ const ButtonTop = () => {
   return (
     <StyledContainerButton>
       <button type="button" onClick={handleScrollToTop}>
-        {/* <img src="|" alt="" /> */}
-        Subir
+        <img src={buttonTop} alt="" />
       </button>
     </StyledContainerButton>
   );

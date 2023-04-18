@@ -3,16 +3,17 @@ import { ProductsContext } from "../../../provider/productsContext";
 import StyledContainerCategories from "./style";
 
 const FilterForCategory = () => {
-  const { listFilters, setCategoryId, setShowCategory } = useContext(ProductsContext);
+  const { listFilters, setCategoryId, setShowCategory } =
+    useContext(ProductsContext);
 
   const filterCategories =
     listFilters &&
     listFilters[0] &&
     listFilters[0].filter((filter) => filter.id === "category");
 
-    if (filterCategories && filterCategories[0]?.values.length < 0) {
-        setShowCategory(false);
-      }
+  if (filterCategories && filterCategories[0]?.values.length < 0) {
+    setShowCategory(false);
+  }
 
   return (
     <StyledContainerCategories>

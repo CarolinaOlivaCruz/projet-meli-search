@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { ProductsContext } from "../../provider/productsContext";
 import StyledList from "./style";
 
-const ListProducts = ({items}) => {
+const ListProducts = ({ items }) => {
   const { getItem } = useContext(ProductsContext);
 
   return (
@@ -14,7 +14,7 @@ const ListProducts = ({items}) => {
           <li key={id}>
             <button type="button" onClick={() => getItem(id)}>
               <section>
-                <img src={thumbnail} alt="product thumbnail" />
+                <img src={thumbnail} alt="Imágene del producto" />
                 <div>
                   <p>{title}</p>
                   <span>$ {price},00</span>
