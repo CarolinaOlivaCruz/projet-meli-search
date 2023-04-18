@@ -2,16 +2,16 @@ import styled from "styled-components";
 
 const StyledContainerButton = styled.div`
   position: fixed;
-  bottom: 40px;
-  right: 40px;
+  bottom: 20px;
+  right: 30px;
 
   img {
-    width: 80px;
+    width: 50px;
   }
 
   @media (min-width: 700px) {
     bottom: 35px;
-    right: 70px;
+    right: 90px;
   }
 `;
 

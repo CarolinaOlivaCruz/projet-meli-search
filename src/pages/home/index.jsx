@@ -5,7 +5,7 @@ import StyledContainer from "./style";
 import ProductsDetailsModal from "../../components/Modal";
 import Pagination from "react-js-pagination";
 import { ProductsContext } from "../../provider/productsContext";
-import ButtonTop from "../../components/button-top";
+import ButtonTop from "../../components/ButtonTop";
 import Filters from "../../components/Filters";
 
 const HomePage = () => {

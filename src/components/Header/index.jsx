@@ -3,6 +3,7 @@ import logo from "../../assets/imgs/logo2.png";
 import iconSearch from "../../assets/imgs/search.png";
 import { StyledHeader } from "./style";
 import { ProductsContext } from "../../provider/productsContext";
+import cartImg from "../../assets/imgs/cart.png";
 
 const Header = () => {
   const { listProducts, setFilteredProducts, filteredProducts } =
@@ -32,22 +33,27 @@ const Header = () => {
     <StyledHeader>
       <section>
         <img src={logo} alt="logo" />
-        <form>
-          <input
-            type="text"
-            value={searchTerm}
-            onChange={handleInputChange}
-            placeholder="Buscar produtos..."
-          />
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              handleFilter();
-            }}
-          >
-            <img src={iconSearch} alt="search" />
+        <div>
+          <form>
+            <input
+              type="text"
+              value={searchTerm}
+              onChange={handleInputChange}
+              placeholder="Buscar produtos..."
+            />
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                handleFilter();
+              }}
+            >
+              <img src={iconSearch} alt="search" />
+            </button>
+          </form>
+          <button>
+            <img src={cartImg} alt="" />
           </button>
-        </form>
+        </div>
       </section>
       {isSearching && filteredProducts === null && (
         <p>Nenhum produto encontrado</p>
