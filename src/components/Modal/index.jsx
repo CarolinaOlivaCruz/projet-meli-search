@@ -53,21 +53,18 @@ const ProductsDetailsModal = () => {
             <h2>{title}</h2>
             <h3>$ {price},00</h3>
             <p>
-              <span>Condição:</span> {condition}
+              <span>Condición:</span> {condition}
             </p>
             <p>
-              <span>Disponível:</span> {initial_quantity} unidades
+              <span>Disponible:</span> {initial_quantity} unidades
             </p>
             <p>
-              <span>Já foram vendidos</span> {sold_quantity} unidades
+              <span>Garantía: </span> {warranty}
             </p>
-            <p>
-              <span>Garantia: </span> {warranty}
-            </p>
-            <button>Adicionar ao carrinho</button>
+            <button>Agregar al carrito</button>
           </div>
           <aside>
-            <h4>Descrição:</h4>
+            <h4>Descripción:</h4>
             <article>{description.plain_text}</article>
           </aside>
         </main>

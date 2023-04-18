@@ -5,7 +5,7 @@ import StyledContainer from "./style";
 import ProductsDetailsModal from "../../components/Modal";
 import Pagination from "react-js-pagination";
 import { ProductsContext } from "../../provider/productsContext";
-import ButtonTop from "../../components/button-top";
+import ButtonTop from "../../components/ButtonTop";
 import Filters from "../../components/Filters";
 
 const HomePage = () => {
@@ -43,7 +43,7 @@ const HomePage = () => {
       <StyledContainer>
         {listProducts && listProducts.length > 0 ? (
           <>
-            {loading && <p>Carregando...</p>}
+            {loading && <p>Cargando...</p>}
             <ListProducts items={displayedItems} />
             {filteredProducts && filteredProducts.length > 0 && (
               <Pagination
@@ -57,7 +57,7 @@ const HomePage = () => {
           </>
         ) : (
           <>
-            {loading ? <p>Carregando...</p> : <p>Nenhum produto encontrado</p>}
+            {loading ? <p>Cargando...</p> : <p>¡Ningún producto encontrado!</p>}
           </>
         )}
         <ButtonTop />

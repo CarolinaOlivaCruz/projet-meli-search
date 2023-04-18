@@ -7,7 +7,7 @@ const StyledContainer = styled.section`
 
   @media (min-width: 750px) {
     width: 70%;
-  } ;
+  }
 
   @media (min-width: 1200px) {
     width: 50%;
