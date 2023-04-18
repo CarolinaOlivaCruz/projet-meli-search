@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import ListCart from "../../components/ListCart";
 import {
   addCart,
   clearCart,
@@ -8,6 +9,7 @@ import {
   getTotals,
   removeFromCart,
 } from "../../provider/cartSlice";
+import StyledCarrito from "./style";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
@@ -34,62 +36,32 @@ const Cart = () => {
   };
 
   return (
-    <div>
-      <h2>Cart</h2>
+    <StyledCarrito>
       {cart.cartItems.length === 0 ? (
-        <div>
-          <p>Adicione itens...</p>
-          <div>
-            <Link to="/">
-              <span>Start Shop</span>
-            </Link>
-          </div>
-        </div>
+        <section>
+          <p>¡Construye un carrito de compras!</p>
+          <Link to="/">
+            <span>Buscar productos</span>
+          </Link>
+        </section>
       ) : (
-        <div>
-          <div>
-            <h3>Product</h3>
-            <h3>Price</h3>
-            <h3>Quantity</h3>
-            <h3>Total</h3>
-          </div>
-          <div>
-            {cart.cartItems?.map((item) => {
-              return (
-                <div key={item.id}>
-                  <div>
-                    <img src={item.thumbnail} alt="" />
-                    <div>
-                      <h3>{item.title}</h3>
-                      <p>{item.price}</p>
-                      <button onClick={() => handleRemoveFromCart(item)}>
-                        Remover
-                      </button>
-                    </div>
-                  </div>
-                  <div>${item.price}</div>
-                  <div>
-                    <button onClick={() => handleDecrease(item)}>-</button>
-                    <button>{item.cartQuantity}</button>
-                    <button onClick={() => handleAdd(item)}>+</button>
-                  </div>
-                  <div>{item.price * item.cartQuantity}</div>
-                  <div></div>
-                </div>
-              );
-            })}
-            <div>
-              <span>Subtotal</span>
-              <span>$ {cart.cartTotalAmount}</span>
-            </div>
-            <button onClick={() => handleClearCart()}>Clear cart</button>
-            <Link to="/">
-              <span>Continue comprando</span>
-            </Link>
-          </div>
-        </div>
+        <section>
+          <main>
+            <ListCart />
+            <aside>
+              {" "}
+              <div>
+                <span>Total $ {cart.cartTotalAmount}</span>
+              </div>
+              <button onClick={() => handleClearCart()}>Clear cart</button>
+              <Link to="/">
+                <p>Ver produtos</p>
+              </Link>
+            </aside>
+          </main>
+        </section>
       )}
-    </div>
+    </StyledCarrito>
   );
 };
 

@@ -3,12 +3,14 @@ import logo from "../../assets/imgs/logo2.png";
 import iconSearch from "../../assets/imgs/search.png";
 import { StyledHeader } from "./style";
 import { ProductsContext } from "../../provider/productsContext";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const { listProducts, setFilteredProducts, filteredProducts } =
     useContext(ProductsContext);
   const [searchTerm, setSearchTerm] = useState("");
   const [isSearching, setIsSearching] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setFilteredProducts(listProducts);
@@ -48,6 +50,7 @@ const Header = () => {
             <img src={iconSearch} alt="search" />
           </button>
         </form>
+        <button type="button" onClick={() => navigate("/cart")}>cart</button>
       </section>
       {isSearching && filteredProducts === null && (
         <p>Nenhum produto encontrado</p>
