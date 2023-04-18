@@ -1,70 +1,136 @@
-# Getting Started with Create React App
+<div align="center">
+<img alt="homepage the project" src="https://github.com/CarolinaOlivaCruz/projet-meli-search/blob/fix/clean-code/src/assets/imgs/designer/app1.png" />
+</div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div align="center">
+<h3>
+  SPA - MELISEARCH
+</h3>
+<p>Una aplicación de React responsiva que permite buscar y ver información de un artículo utilizando la API de Mercado Libre.</p>
+Link Vercel: 
+<a href="https://y-orpin-five.vercel.app/">Haga clic aquí</a> para acceder al proyecto.
+</div>
+<br/>
+<p align="center">
+    <img alt="Insignia que indica que el proyecto fue creado en abril de 2023." src="https://img.shields.io/badge/Data%20de%20cria%C3%A7%C3%A3o-Abril%2F2023-blue">
+    <img alt="Insignia que indica que el estado del proyecto es "En progreso"." src="https://img.shields.io/badge/Status-En progreso-blue">
+</p>
 
-## Available Scripts
+• <a href="#Descripción">Descripción</a>
+<br>
+• <a href="#Start">Start de la aplicación</a>
+<br>
+• <a href="#funcionalidades">Funcionalidades</a>
+<br>
+• <a href="#Bugs">Report bugs</a>
+<br>
+• <a href="#doc">Documentação da API del Mercado Libre</a>
+<br>
+• <a href="#Bibliotecas">Bibliotecas</a>
+<br>
+• <a href="#Tecnologías">Tecnologías</a>
+<br>
+• <a href="# Desarrolladora">Desarrolladora</a>
+<br>
 
-In the project directory, you can run:
+<h2 id="Descripción">:pencil2: Descripción</h2>
+La aplicación es una especie de catálogo de productos que debe contener una lista de productos y una pantalla de detalles para cada uno. Además, la aplicación debe permitir hacer filtros por búsqueda, categoría y precio.
 
-### `yarn start`
+<h2 id="Start">:computer: Start  de la aplicación</h2>
+Para iniciar las dependencias del proyecto, después de clonar el SSH, abrir la terminal y usar el comando yarn, y después de eso usar el comando yarn start.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Enlace de Vercel: 
+<a href="https://y-orpin-five.vercel.app/">Haga clic aquí</a> para acceder al proyecto.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<h2 id="Bibliotecas">:books: Bibliotecas utilizadas</h2>
 
-### `yarn test`
+- [x] ReactJs
+- [x] Styled components
+- [x] Context API
+- [x] React toastfy
+- [x] React Router DOM
+- [x] Axios
+- [x] Redux
+- [x] React-js-pagination
+- [x] React-responsive-carousel
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<h2 id="Tecnologías">:wrench: Tecnologías utilizadas</h2>
 
-### `yarn build`
+- [x] VS Code
+- [x] Github
+- [x] Javascript
+- [x] Node 16.18.0 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<h2 id="funcionalidades">:hammer: Funcionalidades</h2>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<div align="center">
+<img alt="feature modal" src="https://github.com/CarolinaOlivaCruz/projet-meli-search/blob/fix/clean-code/src/assets/imgs/designer/app6.png" />
+</div>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Generales
+- Consumo de la API de Mercado Libre
+- Lista de productos
+- Modal que muestra los detalles del producto seleccionado
+- Filtrado por título, precio y categorías de los productos
+- Agregar y quitar el producto seleccionado al carrito
 
-### `yarn eject`
+<div align="center">
+<img alt="Busca por categoria" src="https://github.com/CarolinaOlivaCruz/projet-meli-search/blob/fix/clean-code/src/assets/imgs/designer/app3.png" />
+</div>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<h2 id="Bugs">:clipboard: Informe de errores</h2>
+Por hacer:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [ ] Corregir error en la estilización del modal.
+- [ ] Corregir error en la paginación, que debe poder hacer clic en cualquier página y renderizar los productos de esa página.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<h2 id="doc">:page_facing_up: Documentación de la API de Mercado Libre </h2>
+ <a href="https://developers.mercadolibre.com.ar/es_ar/api-docs-es">Haga clic aquí</a> para acceder a la API de Mercado Libre.
+ <br/>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+ <h2>Requisitos detallados para las funcionalidades:</h2>
+ 
+ - [x] Crear una aplicación de React que permita buscar y ver información del artículo
+utilizando la API (https://api.mercadolibre.com/sites/MLA/search?q=:query), SIN usar los colores de
+Mercado Libre.
+ - [ ] La aplicación debe implementar Server-Side Rendering (SSR) utilizando una
+tecnología de tu elección, como Next.js, Nuxt.js, o cualquier otro marco o
+biblioteca de tu preferencia.
+ - [x] La aplicación debe tener una página de búsqueda y un Modal o Pop up de
+detalles del artículo.
+ - [x] En la página de búsqueda, el usuario debe poder ingresar el nombre del artículo y
+buscarlo.
+ - [x] La página de búsqueda debe mostrar los resultados de la búsqueda en tarjetas
+(imagen, nombre, precio etc) y permitir al usuario hacer clic en un resultado para
+ver el Modal o Pop up de detalles del artículo.
+ - [x] En el Modal o Pop up de detalles del artículo se podrá consultar desde la API
+https://api.mercadolibre.com/items/:id, se debe mostrar toda la información
+disponible, incluyendo la imagen, nombre, precio, descripción, tipo etc y un botón
+de compra.
+ - [x] Para ver la descripción https://api.mercadolibre.com/items/:id/description.
+ - [x] La aplicación debe ser responsive y tener un diseño agradable (Tablets >= 768px ,
+Laptops >= 992px y Desktop >= 1200px ).
+<br/>
+<h3>Bonus</h3>
 
-## Learn More
+ - [x] Implementa la funcionalidad de paginación en la página de resultados
+ - [x] Implementa una funcionalidad de búsqueda avanzada que permita al usuario
+filtrar los resultados por precio, tipo, descripción etc
+ - [x] Utiliza Redux o cualquier otra biblioteca de gestión de estado para manejar el
+estado de la aplicación
+ - [ ] Crea pruebas unitarias para cada componente funcional que verifiquen su
+comportamiento en diferentes escenarios (por ejemplo, componentes que
+renderizan correctamente, componentes que reciben las props adecuadas,
+componentes que manejan los errores correctamente, etc)
+ - [ ] Crea pruebas de integración para verificar el comportamiento de la aplicación en
+diferentes navegadores y dispositivos, y para asegurarte de que los componentes
+interactúen correctamente entre sí
+ - [ ] Implementar React testing-library ESLint + Prettier
+ - [x] Implementa manejo adecuado de errores y mensajes de error para una
+experiencia de usuario mejorada
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<h2 id=" Desarrolladora">:construction_worker:  Desarrolladora</h2>
+ 
+<a href="https://github.com/CarolinaOlivaCruz">
+  <img width="120px" src="https://avatars.githubusercontent.com/u/78989471?v=4">
+</a>
