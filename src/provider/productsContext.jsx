@@ -1,6 +1,7 @@
 import React from "react";
 import { createContext, useState, useEffect } from "react";
 import apiService from "../services/api";
+import { toast } from "react-toastify";
 
 const ProductsContext = createContext();
 
@@ -43,6 +44,7 @@ const ProductProvider = ({ children }) => {
       } catch (error) {
         console.error(error);
         setLoading(false);
+        toast.error("¡Ups! Algo salió mal.");
       }
     };
 
@@ -67,6 +69,7 @@ const ProductProvider = ({ children }) => {
     } catch (error) {
       console.error(error);
       setLoading(false);
+      toast.error("¡Ups! Algo salió mal.");
     }
   };
 

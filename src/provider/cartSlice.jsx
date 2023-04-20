@@ -20,13 +20,13 @@ const cartSlice = createSlice({
       );
       if (itemIndex >= 0) {
         state.cartItems[itemIndex].cartQuantity += 1;
-        toast.success("added new product to cart", {
+        toast.success("Producto añadido al carrito", {
           position: "bottom-left",
         });
       } else {
         const tempProduct = { ...action.payload, cartQuantity: 1 };
         state.cartItems.push(tempProduct);
-        toast.success("added new product to cart", {
+        toast.success("Producto añadido al carrito", {
           position: "bottom-left",
         });
       }
@@ -40,7 +40,7 @@ const cartSlice = createSlice({
       );
       state.cartItems = nextCartItems;
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
-      toast.success("Item removido com sucesso", {
+      toast.success("Producto eliminado exitosamente", {
         position: "bottom-left",
       });
     },
@@ -52,7 +52,7 @@ const cartSlice = createSlice({
       if (state.cartItems[itemIndex].cartQuantity > 1) {
         state.cartItems[itemIndex].cartQuantity -= 1;
 
-        toast.success("Item removido com sucesso", {
+        toast.success("Producto eliminado exitosamente", {
           position: "bottom-left",
         });
       } else if (state.cartItems[itemIndex].cartQuantity === 1) {
@@ -60,7 +60,7 @@ const cartSlice = createSlice({
           (item) => item.id !== action.payload.id
         );
         state.cartItems = nextCartItems;
-        toast.success("Item removido com sucesso", {
+        toast.success("Producto eliminado exitosamente", {
           position: "bottom-left",
         });
       }
@@ -74,15 +74,16 @@ const cartSlice = createSlice({
       if (state.cartItems[itemIndex].cartQuantity >= 1) {
         state.cartItems[itemIndex].cartQuantity += 1;
 
-        toast.success("Item adicionado com sucesso", {
+        toast.success("Producto añadido exitosamente", {
           position: "bottom-left",
         });
       }
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
+
     clearCart(state, action) {
       state.cartItems = [];
-      toast.success("Itens removidos com sucesso", {
+      toast.success("Productos eliminados exitosamente", {
         position: "bottom-left",
       });
 
@@ -111,6 +112,12 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addToCart, removeFromCart, decreaseCart, addCart, clearCart, getTotals } =
-  cartSlice.actions;
+export const {
+  addToCart,
+  removeFromCart,
+  decreaseCart,
+  addCart,
+  clearCart,
+  getTotals,
+} = cartSlice.actions;
 export default cartSlice.reducer;
