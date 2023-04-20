@@ -83,6 +83,8 @@ Por hacer:
 
 - [ ] Corregir error en la estilización del modal.
 - [ ] Corregir error en la paginación, que debe poder hacer clic en cualquier página y renderizar los productos de esa página.
+- [ ] Traducir mensajes de éxito.
+- [ ] Corregir error en la estilización del carrito.
 
 <h2 id="doc">:page_facing_up: Documentación de la API de Mercado Libre </h2>
  <a href="https://developers.mercadolibre.com.ar/es_ar/api-docs-es">Haga clic aquí</a> para acceder a la API de Mercado Libre.
